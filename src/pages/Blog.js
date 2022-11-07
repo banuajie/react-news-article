@@ -30,18 +30,16 @@ function Blog() {
                 <div>
                     {articles.map(function (article) {
                         return (
-                            <>
-                                <div className="article-item">
-                                    <h1>
-                                        <Link to={`/blog/${article.id}`} className="article-title">
-                                            {article.title}
-                                        </Link>
-                                    </h1>
-                                    <time className="section-time">
-                                        <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
-                                    </time>
-                                </div>
-                            </>
+                            <div className="article-item">
+                                <h1>
+                                    <Link to={`/blog/${article.id}`} className="article-title">
+                                        {article.title}
+                                    </Link>
+                                </h1>
+                                <time className="section-time">
+                                    <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
+                                </time>
+                            </div>
                         );
                     })}
                 </div>
