@@ -1,20 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+
+import HeaderNav from "./HeaderNav";
 
 function BlogDetail() {
     const paramsId = useParams();
     const [article, setArticle] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(
         function () {
             async function getArticle() {
+                setLoading(true);
+
                 const requestData = await fetch(`https://api.spaceflightnewsapi.net/v3/articles/${paramsId.id}`);
                 const responseData = await requestData.json();
 
-                document.title = responseData.title;
                 setArticle(responseData);
                 setLoading(false);
+
+                document.title = responseData.title;
             }
             getArticle();
         },
@@ -22,21 +27,22 @@ function BlogDetail() {
     );
 
     return (
-        <section>
+        <>
+            <HeaderNav />
             <section className="section">
                 {loading ? (
                     <p>
                         <i>Loading Article...</i>
                     </p>
                 ) : (
-                    <div>
+                    <div className="article-detail">
                         <h1 className="section-title">{article.title}</h1>
                         <time>
-                            <p className="section-time">{new Date(article.publishedAt).toLocaleDateString()}</p>
+                            <p className="article-time">{new Date(article.publishedAt).toLocaleDateString()}</p>
                         </time>
-                        <img className="section-image" src={article.imageUrl} alt={article.title} />
-                        <p className="section-summary">{article.summary}</p>
-                        <p className="section-source">
+                        <img className="article-image" src={article.imageUrl} alt={article.title} />
+                        <p className="article-summary">{article.summary}</p>
+                        <p className="article-source">
                             Source :{" "}
                             <a href={article.url} target="_blank" rel="noreferrer">
                                 {article.newsSite}
@@ -45,7 +51,7 @@ function BlogDetail() {
                     </div>
                 )}
             </section>
-        </section>
+        </>
     );
 }
 

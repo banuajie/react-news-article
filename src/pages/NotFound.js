@@ -1,14 +1,13 @@
-import { useEffect } from "react";
+import HeaderNav from "./HeaderNav";
 
 function NotFound() {
-    useEffect(function () {
-        document.title = "Not Found";
-    });
-
     return (
-        <section className="section">
-            <h1 className="section-title">404 Not Found : Halaman Tidak Tersedia :(</h1>
-        </section>
+        <>
+            <HeaderNav />
+            <section>
+                <h1>404 Not Found : Halaman Tidak Tersedia :(</h1>
+            </section>
+        </>
     );
 }
 

@@ -1,68 +1,53 @@
+/* ===================== CSS App ===================== */
 * {
     box-sizing: border-box;
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-
     width: 415px;
-    min-height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
-    border-right: 1px solid lightgrey;
+    margin: 0 auto;
     border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    min-height: 100vh;
 }
 
-.title-header {
+/* ===================== CSS Header Navbar ===================== */
+.header-title {
     font-size: 24px;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
 }
 
 .nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 }
 
 .nav-item {
-    display: flex;
-    justify-content: center;
     font-size: 16px;
-    text-decoration: none;
     color: black;
-    padding: 14px 0;
+    text-align: center;
+    text-decoration: none;
     width: 100%;
+    padding: 14px 0;
+}
+
+.nav-item:hover {
+    color: lightgrey;
 }
 
 .nav-item:not(:last-child) {
     border-right: 1px solid lightgrey;
 }
 
-.nav-item:hover {
-    color: grey;
-}
-
+/* ===================== CSS Section ===================== */
 .section {
     padding: 0 30px;
 }
 
-.section-list {
-    list-style: none;
-}
-
-.section-list a {
-    color: black;
-    text-decoration: none;
-}
-
-.section-list a:hover {
-    color: lightgrey;
-}
-
-.article-item {
+.article {
     border-top: 1px solid lightgrey;
 }
 
@@ -75,14 +60,31 @@
     color: lightgrey;
 }
 
-.section-time {
+.article-time {
     color: grey;
 }
 
-.section-image {
+.article-image {
     width: 100%;
 }
 
-.section-source {
+.article-source {
     color: grey;
+}
+
+.list-contact {
+    list-style-type: none;
+}
+
+.list-sosmed {
+    list-style-type: none;
+}
+
+.sosmed-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.sosmed-item a:hover {
+    color: lightgrey;
 }
