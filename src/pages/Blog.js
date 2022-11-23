@@ -27,7 +27,7 @@ function Blog() {
             <HeaderNav />
             <section className="section">
                 <h1 className="section-title">Blog</h1>
-                <p className="section-desc">Berikut adalah kumpulan artikel dari berbagai sumber :</p>
+                <p className="section-desc">Berikut adalah kumpulan artikel berita dari berbagai sumber :</p>
                 {loading ? (
                     <p>
                         <i>Loading Article...</i>
